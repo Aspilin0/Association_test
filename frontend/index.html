@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>联想情结探测工具</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <header>
+    <h1>联想情结探测工具</h1>
+    <p class="subtitle">荣格式词语联想实验 · M1 原型</p>
+  </header>
+
+  <main>
+    <section id="screen-seed" class="screen">
+      <h2>输入种子词</h2>
+      <p class="hint">可输入一个或多个，用空格 / 逗号分隔。每个种子词会生成一条联想链。</p>
+      <textarea id="seed-input" rows="3" placeholder="例如：家 母亲"></textarea>
+      <div class="actions">
+        <button id="btn-start" class="primary">开始联想</button>
+      </div>
+    </section>
+
+    <section id="screen-exp" class="screen hidden">
+      <div class="status-bar">
+        <span>种子：<strong id="exp-seed"></strong></span>
+        <span>第 <strong id="exp-round"></strong> 轮</span>
+      </div>
+      <div id="continue-banner" class="continue-banner hidden">固定轮数已完成，可继续联想，或点「结束」查看结果。</div>
+      <div class="chain" id="exp-chain"></div>
+      <div class="prompt">从下面选一个最先浮现在脑海的词，或自己输入：</div>
+      <div class="candidates" id="candidates"></div>
+      <div class="free-input">
+        <input id="free-word" type="text" placeholder="自由输入词语，回车提交" autocomplete="off">
+      </div>
+      <div class="last-result hidden" id="last-result"></div>
+      <div class="actions">
+        <button id="btn-reshuffle">换一批候选</button>
+        <button id="btn-viz">网络图</button>
+        <button id="btn-finish" class="danger">提前结束</button>
+      </div>
+    </section>
+
+    <section id="screen-result" class="screen hidden">
+      <h2>联想结果</h2>
+      <div id="result-summary" class="summary"></div>
+      <p class="legend">带 <code>*</code> 的词为重复出现的词（历史词）。</p>
+      <div id="result-chains"></div>
+      <div id="report" class="report hidden"></div>
+      <canvas id="report-viz-canvas" class="viz-canvas hidden" style="margin-top:16px;"></canvas>
+      <div class="actions">
+        <button id="btn-report" class="primary">生成报告</button>
+        <button id="btn-viz-result">查看网络图</button>
+        <button id="btn-restart">重新开始</button>
+      </div>
+    </section>
+    <section id="screen-viz" class="screen hidden">
+      <h2>潜意识网络</h2>
+      <div id="viz-legend" class="viz-legend"></div>
+      <canvas id="viz-canvas" class="viz-canvas"></canvas>
+      <div class="actions">
+        <button id="btn-viz-reshuffle">重新布局</button>
+        <button id="btn-viz-back">返回</button>
+      </div>
+    </section>
+  </main>
+
+  <footer>探索性自省工具，非临床诊断。</footer>
+  <script src="/app.js"></script>
+</body>
+</html>

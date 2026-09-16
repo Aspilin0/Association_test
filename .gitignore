@@ -1,0 +1,12 @@
+# Python
+__pycache__/
+*.pyc
+backend/.venv/
+backend/.env
+backend/http_result.json
+backend/deepseek_out.json
+backend/report_out.json
+backend/*_out.txt
+
+# Node（备用）
+node_modules/
